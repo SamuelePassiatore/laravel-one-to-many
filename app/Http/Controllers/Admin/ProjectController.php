@@ -58,8 +58,10 @@ class ProjectController extends Controller
             'image' => 'nullable|image',
             'description' => 'string',
             'url' => 'nullable|url|unique:projects',
+            'type_id' => 'nullable|exists:types_id'
         ], [
             'title.unique' => "The title '$request->title' has already been taken.",
+            'type_id' => "Type of project not valid"
         ]);
 
         $data = $request->all();
@@ -113,8 +115,10 @@ class ProjectController extends Controller
             'image' => 'nullable|image',
             'description' => 'string',
             'url' => ['nullable', 'url', Rule::unique('projects')->ignore($project->id)],
+            'type_id' => 'nullable|exists:types_id'
         ], [
-            'title.unique' => "The title '$request->title' has already been taken."
+            'title.unique' => "The title '$request->title' has already been taken.",
+            'type_id' => "Type of project not valid"
         ]);
 
         $data = $request->all();
