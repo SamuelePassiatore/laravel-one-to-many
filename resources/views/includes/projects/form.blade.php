@@ -51,20 +51,24 @@
     </div>
     <div class="col-5 d-flex align-items-center justify-content-center my-5">
         <label class="form-label" for="type_id" style="width: 185px">Type of project</label>
-        <select class="form-select" name="type_id" id="type_id">
+        <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
             <option value="">No categories</option>
             @foreach ($types as $type)
-                <option @if ($project->type_id === $type->id) selected @endif value="{{ $type->id }}">
+                <option @if (old('type_id', $project->type_id) == $type->id) selected @endif value="{{ $type->id }}">
                     {{ $type->label }}</option>
             @endforeach
-
         </select>
+        @error('type_id')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
     <div class="col-10">
         <div class="mb-3 mt-5">
-            <label for="image" class="form-label @error('image') is-invalid @enderror">Image:</label>
-            <input type="file" class="form-control" id="image" name="image"
-                value="{{ old('image', $project->image) }}">
+            <label for="image" class="form-label">Image:</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                name="image" value="{{ old('image', $project->image) }}">
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
