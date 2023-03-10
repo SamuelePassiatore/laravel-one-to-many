@@ -58,7 +58,7 @@
                     {{ $type->label }}</option>
             @endforeach
         </select>
-        @error('type_id')
+        @error('image')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
