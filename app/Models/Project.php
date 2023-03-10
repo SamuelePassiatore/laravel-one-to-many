@@ -11,4 +11,10 @@ class Project extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['title', 'image', 'description', 'url', 'slug', 'is_public'];
+
+    // Allocate the relation with types
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
