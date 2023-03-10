@@ -38,6 +38,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Url</th>
+                <th scope="col">Type</th>
                 <th scope="col">Status</th>
                 <th scope="col">Update at</th>
                 <th scope="col"></th>
@@ -50,6 +51,7 @@
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->slug }}</td>
                     <td>{{ $project->url }}</td>
+                    <td>{{ $project->type?->label }}</td>
                     <td>
                         <form action="{{ route('admin.projects.toggle', $project->id) }}" method="POST">
                             @method('PATCH')
