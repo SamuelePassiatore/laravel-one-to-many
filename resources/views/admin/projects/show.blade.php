@@ -25,6 +25,9 @@
                     </div>
                     <div class="my-2"><strong>Slug: </strong> {{ $project->slug }} </div>
                     <div class="my-2"><strong>Url: </strong> {{ $project->url }} </div>
+                    <div class="my-2"><strong>Type: </strong>
+                        {{ $project->type?->label ? $project->type->label : '-' }}
+                    </div>
                     <div class="my-2"><strong>Status: </strong> {{ $project->is_public ? 'Public' : 'Private' }}
                     </div>
                     <div class="my-2"><strong>Last modification: </strong> {{ $project->updated_at }} </div>

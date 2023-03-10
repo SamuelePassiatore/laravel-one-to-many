@@ -51,7 +51,15 @@
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->slug }}</td>
                     <td>{{ $project->url }}</td>
-                    <td>{{ $project->type?->label }}</td>
+                    <td>
+                        @if ($project->type)
+                            <span class="badge" style="background-color: {{ $project->type->color }}">
+                                {{ $project->type->label }}
+                            </span>
+                        @else
+                            <div class="text-center">-</div>
+                        @endif
+                    </td>
                     <td>
                         <form action="{{ route('admin.projects.toggle', $project->id) }}" method="POST">
                             @method('PATCH')
