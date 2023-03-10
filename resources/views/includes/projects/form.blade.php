@@ -52,9 +52,10 @@
     <div class="col-5 d-flex align-items-center justify-content-center my-5">
         <label class="form-label" for="type_id" style="width: 185px">Type of project</label>
         <select class="form-select" name="type_id" id="type_id">
-            <option selected value="">No categories</option>
+            <option value="">No categories</option>
             @foreach ($types as $type)
-                <option value="{{ $type->id }}">{{ $type->label }}</option>
+                <option @if ($project->type_id === $type->id) selected @endif value="{{ $type->id }}">
+                    {{ $type->label }}</option>
             @endforeach
 
         </select>
