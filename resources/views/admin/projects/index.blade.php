@@ -14,7 +14,8 @@
                         <option value="">All types</option>
                         @foreach ($types as $type)
                             <option @if ($type_id == $type->id) selected @endif value="{{ $type->id }}">
-                                {{ $type->label }}</option>
+                                {{ $type->label }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -153,4 +154,11 @@
             const searchValue = searchInput.value.trim();
         });
     </script> --}}
+
+    <script>
+        const filterType = document.getElementById('type_id');
+        filterType.addEventListener('change', () => {
+            filterForm.submit();
+        })
+    </script>
 @endsection
