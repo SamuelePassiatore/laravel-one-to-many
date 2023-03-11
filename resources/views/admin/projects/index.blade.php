@@ -53,7 +53,7 @@
                     <td>{{ $project->url }}</td>
                     <td>
                         @if ($project->type)
-                            <span class="badge text-dark" style="background-color: {{ $project->type->color }}">
+                            <span class="badge text-white" style="background-color: {{ $project->type->color }}">
                                 {{ $project->type->label }}
                             </span>
                         @else
@@ -108,6 +108,25 @@
             {{ $projects->links() }}
         @endif
     </div>
+    <section id="types-projects my-5">
+        <hr>
+        <h2 class="pb-3">Projects by Types</h2>
+        <div class="row justify-content-between">
+            @foreach ($types as $type)
+                <div class="col-3">
+                    <h4>{{ $type->label }}<small>({{ count($type->projects) }})</small></h4>
+                    <ul>
+                        @forelse ($type->projects as $project)
+                            <li><a class="text-decoration-none"
+                                    href="{{ route('admin.projects.show', $project->id) }}">{{ $project->title }}</a></li>
+                        @empty
+                            <div>No projects for this type</div>
+                        @endforelse
+                    </ul>
+                </div>
+            @endforeach
+        </div>
+    </section>
 @endsection
 
 @section('scripts')

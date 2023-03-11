@@ -35,7 +35,8 @@ class ProjectController extends Controller
         }
 
         $projects = $query->paginate(10);
-        return view('admin.projects.index', compact('projects', 'selected', 'search'));
+        $types = Type::all();
+        return view('admin.projects.index', compact('projects', 'selected', 'search', 'types'));
     }
 
     /**
