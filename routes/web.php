@@ -3,6 +3,7 @@
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('/admin')->group
     Route::delete('/projects/drop', [ProjectController::class, 'dropAll'])->name('projects.trash.dropAll');
     // Project routes
     Route::resource('projects', ProjectController::class);
+    // Types routes
+    Route::resource('types', TypeController::class);
 });
 
 // Profile routes
