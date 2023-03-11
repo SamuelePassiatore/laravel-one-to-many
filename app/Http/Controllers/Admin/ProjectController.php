@@ -20,6 +20,7 @@ class ProjectController extends Controller
     {
         $filter = $request->query('filter');
         $search = $request->query('search');
+        $type_id = $request->query('type_id');
 
         $selected = $filter ? $filter : 'all';
 
@@ -34,9 +35,13 @@ class ProjectController extends Controller
             $query->where('title', 'LIKE', "%$search%");
         }
 
+        if ($type_id) {
+            $query->where('type_id', $type_id);
+        }
+
         $projects = $query->paginate(10);
         $types = Type::all();
-        return view('admin.projects.index', compact('projects', 'selected', 'search', 'types'));
+        return view('admin.projects.index', compact('projects', 'selected', 'search', 'types', 'type_id'));
     }
 
     /**
