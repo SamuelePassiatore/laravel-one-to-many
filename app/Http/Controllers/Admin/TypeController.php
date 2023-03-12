@@ -60,7 +60,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('admin.types.show', compact('type'));
+        return to_route('admin.types.index');
     }
 
     /**

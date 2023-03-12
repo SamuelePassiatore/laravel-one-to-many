@@ -7,7 +7,7 @@
     <header class="my-4 d-flex justify-content-between align-items-center">
         <h1>Types</h1>
         <a href="{{ route('admin.types.create') }}" class="btn btn-success me-2">
-            <i class="fas fa-plus"></i>Add Types
+            <i class="fas fa-plus"></i>Add Type
         </a>
         {{-- <a href="{{ route('admin.types.trash.index') }}" class="btn btn-danger">Trash</a> --}}
     </header>
@@ -31,9 +31,6 @@
                     <td>{{ $type->updated_at }}</td>
                     <td>
                         <div class="d-flex">
-                            <a class="btn btn-sm btn-primary" href="{{ route('admin.types.show', $type->id) }}">
-                                <i class="fas fa-eye"></i>
-                            </a>
                             <form action="{{ route('admin.types.destroy', $type->id) }}" method="POST" class="delete-form"
                                 data-name="category">
                                 @method('DELETE')

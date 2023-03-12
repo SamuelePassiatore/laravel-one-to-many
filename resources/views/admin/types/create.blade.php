@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'New project')
+@section('title', 'New type')
 
 @section('content')
 
     <header class="my-4 d-flex justify-content-between align-items-center">
-        <h1>New project</h1>
+        <h1>New type</h1>
     </header>
     <hr>
-    @include('includes.projects.form')
+    @include('includes.types.form')
 
 
 @endsection
