@@ -32,7 +32,7 @@
                     <td>
                         <div class="d-flex">
                             <form action="{{ route('admin.types.destroy', $type->id) }}" method="POST" class="delete-form"
-                                data-name="category">
+                                data-name="type">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-danger mx-2">
