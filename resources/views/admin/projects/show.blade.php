@@ -30,7 +30,7 @@
                     </div>
                     <div class="my-2"><strong>Status: </strong> {{ $project->is_public ? 'Public' : 'Private' }}
                     </div>
-                    <div class="my-2"><strong>Last modification: </strong> {{ $project->updated_at }} </div>
+                    <div class="my-2"><strong>Last modification: </strong><time>{{ $project->updated_at }}</time> </div>
                 </div>
             </div>
 

@@ -9,6 +9,11 @@
         <div class="d-flex align-items-center justify-content-between">
             <form method="GET" action="{{ route('admin.projects.index') }}" class="me-5 d-flex" id="filter-form">
                 <div class="input-group d-flex align-items-center">
+                    <label for="search-input">Title</label>
+                    <input type="text" class="form-control w-50 ms-2" placeholder="Insert a project title" name="search"
+                        value="{{ $search }}" id="search-input">
+                </div>
+                <div class="input-group d-flex align-items-center mx-3">
                     <label for="type_id">Type</label>
                     <select class="form-select ms-2" name="type_id" id="type_id">
                         <option value="">All types</option>
@@ -18,11 +23,6 @@
                             </option>
                         @endforeach
                     </select>
-                </div>
-                <div class="input-group d-flex align-items-center mx-3">
-                    <label for="search-input">Title</label>
-                    <input type="text" class="form-control w-50 ms-2" placeholder="Insert a project title" name="search"
-                        value="{{ $search }}" id="search-input">
                 </div>
                 <div class="input-group d-flex align-items-center me-3">
                     <label for="filter-status">Status</label>
